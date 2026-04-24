@@ -3,11 +3,20 @@
    Countdown · Polaroid bio modal · Ticker · Best-man poll
    ============================================================ */
 
-/* ---------- ALWAYS LOAD FROM THE TOP ---------- */
+/* ---------- ALWAYS LOAD FROM THE TOP (desktop + mobile, incl. iOS Safari bfcache) ---------- */
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-window.scrollTo(0, 0);
-window.addEventListener('load', () => window.scrollTo(0, 0));
-window.addEventListener('pageshow', () => window.scrollTo(0, 0));
+// Strip any lingering anchor so the browser doesn't jump to it on reload
+if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+
+function __scrollTopHard() {
+  window.scrollTo(0, 0);
+  if (document.documentElement) document.documentElement.scrollTop = 0;
+  if (document.body) document.body.scrollTop = 0;
+}
+__scrollTopHard();
+window.addEventListener('DOMContentLoaded', __scrollTopHard);
+window.addEventListener('load', () => { __scrollTopHard(); requestAnimationFrame(__scrollTopHard); });
+window.addEventListener('pageshow', __scrollTopHard);  // covers mobile back/forward bfcache
 
 /* ---------- 0. YOUTUBE IFRAME API — reliable looping for unlisted videos ---------- */
 var heroPlayer, bodhiPlayer;
