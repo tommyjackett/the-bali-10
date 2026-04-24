@@ -3,6 +3,40 @@
    Countdown · Polaroid bio modal · Ticker · Best-man poll
    ============================================================ */
 
+/* ---------- 0. YOUTUBE IFRAME API — reliable looping for unlisted videos ---------- */
+var heroPlayer, bodhiPlayer;
+function onYouTubeIframeAPIReady() {
+  if (document.getElementById('hero-player')) {
+    heroPlayer = new YT.Player('hero-player', {
+      width: '100%', height: '100%',
+      videoId: 'KL1dsh0B38w',
+      playerVars: {
+        autoplay: 1, mute: 1, controls: 1,
+        modestbranding: 1, rel: 0, playsinline: 1,
+        iv_load_policy: 3
+      },
+      events: {
+        onReady: (e) => e.target.playVideo(),
+        onStateChange: (e) => { if (e.data === 0) { e.target.seekTo(0); e.target.playVideo(); } }
+      }
+    });
+  }
+  if (document.getElementById('bodhi-player')) {
+    bodhiPlayer = new YT.Player('bodhi-player', {
+      width: '100%', height: '100%',
+      videoId: 'c-ixAloBfsk',
+      playerVars: {
+        autoplay: 1, mute: 1, controls: 1,
+        modestbranding: 1, rel: 0, playsinline: 1
+      },
+      events: {
+        onReady: (e) => e.target.playVideo(),
+        onStateChange: (e) => { if (e.data === 0) { e.target.seekTo(0); e.target.playVideo(); } }
+      }
+    });
+  }
+}
+
 /* ---------- 1. COUNTDOWN ---------- */
 // Melbourne (AEST, +10:00 in August — no DST)
 const DEPARTURE = new Date('2026-08-23T17:45:00+10:00');
