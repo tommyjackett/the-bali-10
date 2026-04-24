@@ -179,7 +179,7 @@ const CAST = {
     training: 'Lauren: yacht club, winery, repeat. Oscar: 5am start, then still buys the next round.',
     spicy: '🌶️🌶️🌶️ — medium. Will take the medication anyway.',
     mostExcited: 'Graduating from training to the main event',
-    mostLikely: 'MISS THE FLIGHT. If Lauren\'s AFL team makes the Grand Final on Aug 23, Oscar is a solo dad at 30,000 ft.',
+    mostLikely: 'MISS THE FLIGHT. If Lauren\'s footy team makes the Grand Final on Aug 23, Oscar is a solo dad at 30,000 ft.',
     quote: '"Always training."',
     badges: ['Grand Final Risk', 'Solo-Dad-In-Waiting', 'Merch Girl', 'Tradie'],
   },
