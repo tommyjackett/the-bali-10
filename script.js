@@ -205,7 +205,7 @@ const CAST = {
     mostExcited: 'The glowing white dad-bod debut',
     mostLikely: 'Daz: set the tone before wheels up. Rachel: coin the nickname that sticks.',
     quote: '"Good morning, you look so hot today." · "Look for the glowing white dad bod and the sound of chaos."',
-    badges: ['Late Arrivals', 'Nickname Architect', 'Man-Servant', 'Toy Industry Insider'],
+    badges: ['Late Arrivals', 'Nickname Architect', 'Man-Crush Magnet', 'Toy Industry Insider'],
   },
 };
 
