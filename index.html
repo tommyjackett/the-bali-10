@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Bali 10 — 5 Couples. 10 Kids. 1 Resort.</title>
+  <meta name="description" content="5 couples. 10 kids. 1 resort. Nusa Dua, August 2026. A reality show nobody commissioned." />
+  <meta property="og:title" content="The Bali 10" />
+  <meta property="og:description" content="5 couples. 10 kids. 1 resort. Haters will say it's AI." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@500;700&family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ========== SKY PLANE BANNER (animates on load) ========== -->
+  <div class="sky-plane" aria-hidden="true">
+    <span class="plane">✈️</span>
+    <span class="sky-trail">THE BALI 10 IS COMING</span>
+  </div>
+
+  <!-- ========== HERO ========== -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="logo">
+        <span class="logo-the">THE</span>
+        <span class="logo-bali">BALI</span>
+        <span class="logo-nums"><s>8</s><em>10</em></span>
+      </div>
+      <p class="tagline">5 couples. 10 kids. 1 resort. <br class="mobile-br"/>Nusa Dua won't know what hit it.</p>
+
+      <div class="hero-video">
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube.com/embed/KL1dsh0B38w?autoplay=1&mute=1&loop=1&playlist=KL1dsh0B38w&controls=1&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&showinfo=0"
+            title="The Bali 10 Title Card"
+            frameborder="0"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <div class="countdown" id="countdown" aria-label="Countdown to Bali">
+        <div class="unit"><span class="num" data-unit="days">—</span><label>days</label></div>
+        <div class="unit"><span class="num" data-unit="hours">—</span><label>hrs</label></div>
+        <div class="unit"><span class="num" data-unit="mins">—</span><label>min</label></div>
+        <div class="unit"><span class="num" data-unit="secs">—</span><label>sec</label></div>
+      </div>
+      <p class="countdown-caption">Until wheels up MEL → DPS. <span class="muted">Al is counting. So are we.</span></p>
+
+      <div class="stats-strip">
+        <div><b>5</b><span>couples</span></div>
+        <div><b>10</b><span>kids</span></div>
+        <div><b>1</b><span>resort</span></div>
+        <div class="spicy"><b>🌶️ 70%</b><span>neuro-spicy*</span></div>
+      </div>
+      <p class="fine-print">*self-diagnosed. 100% suspected. <em>Keep your shirt on, Tommy.</em></p>
+
+      <a href="#cast" class="scroll-cue">Meet the cast ↓</a>
+    </div>
+  </header>
+
+  <!-- ========== THE CAST ========== -->
+  <section class="cast" id="cast">
+    <div class="section-head">
+      <h2>MEET THE CAST</h2>
+      <p>Five couples. Zero chill. Tap a Polaroid.</p>
+    </div>
+
+    <div class="corkboard">
+      <article class="polaroid" data-couple="justin-jordana" style="--rot:-1deg;">
+        <div class="cast-num">01</div>
+        <img src="assets/couples/Jordana and Justin.PNG" alt="Justin and Jordana" />
+        <div class="polaroid-cap"><span class="emoji">📚🔥</span>The Smut Kings</div>
+      </article>
+
+      <article class="polaroid" data-couple="renee-al" style="--rot:1deg;">
+        <div class="cast-num">02</div>
+        <img src="assets/couples/Renee and Al.PNG" alt="Renee and Al" />
+        <div class="polaroid-cap"><span class="emoji">⏰🍦</span>The Countdown Kings</div>
+      </article>
+
+      <article class="polaroid" data-couple="lauren-oscar" style="--rot:-1deg;">
+        <div class="cast-num">03</div>
+        <img src="assets/couples/Lauren and Oscar.png" alt="Lauren and Oscar" />
+        <div class="polaroid-cap"><span class="emoji">🍷🛠️</span>Always Training</div>
+      </article>
+
+      <article class="polaroid" data-couple="tommy-amy" style="--rot:1deg;">
+        <div class="cast-num">04</div>
+        <img src="assets/couples/Tommy and Amy.jpeg" alt="Tommy and Amy" />
+        <div class="polaroid-cap"><span class="emoji">⛪💃</span>The Chief &amp; The Ex-Stripper</div>
+      </article>
+
+      <article class="polaroid" data-couple="rachel-darren" style="--rot:-1deg;">
+        <div class="cast-num">05</div>
+        <img src="assets/couples/Darren and Rachel.jpeg" alt="Rachel and Darren" />
+        <div class="polaroid-cap"><span class="emoji">🍹👑</span>Katut &amp; Rhonda</div>
+      </article>
+    </div>
+    <p class="cast-hint">👆 tap / click any Polaroid for the full dossier</p>
+  </section>
+
+  <!-- ========== BIO MODAL (populated by JS) ========== -->
+  <dialog id="bioModal" class="bio-modal">
+    <button class="bio-close" data-close>✕</button>
+    <div class="bio-inner" id="bioInner"><!-- injected --></div>
+  </dialog>
+
+  <!-- ========== THE PLOT TWISTS ========== -->
+  <section class="twists">
+    <div class="section-head">
+      <h2>THE PLOT TWISTS</h2>
+      <p>Three storylines. One group chat. Buckle up.</p>
+    </div>
+
+    <div class="twist-grid">
+
+      <article class="twist-card twist-lauren">
+        <div class="twist-status" data-status="pending">
+          <span class="dot"></span> STATUS: PENDING
+        </div>
+        <h3>Will Lauren make the flight?</h3>
+        <p>Lauren coaches an AFL team. If they make the Grand Final on <b>Sun 23 Aug</b>, she's coaching — not flying. Which means <b>Oscar</b> becomes a solo dad at 30,000 ft with two kids and a carry-on.</p>
+        <div class="goalposts">
+          <div class="post left">✈️ FLYING</div>
+          <div class="ball">🏈</div>
+          <div class="post right">🏆 COACHING</div>
+        </div>
+        <p class="twist-note">Finals start hotting up mid-season. We'll update this status as it unfolds.</p>
+      </article>
+
+      <article class="twist-card twist-wedding">
+        <h3>The Wedding That Never Was 💍</h3>
+        <p>Renee &amp; Al's wedding got COVID'd. Five years on, they're in Bali with the crew that never got to watch them tie the knot. <b>Dress code: tropical formal</b>. One big question remains…</p>
+        <div class="bestman-poll" id="bestmanPoll">
+          <h4>BEST MAN SHOWDOWN — Vote now.</h4>
+          <div class="poll-row"><button data-vote="justin">Justin — private equity, sees you later</button><span class="poll-bar"><span data-fill="justin"></span></span><span class="poll-count" data-count="justin">—</span></div>
+          <div class="poll-row"><button data-vote="tommy">Tommy — will make the speech an AI</button><span class="poll-bar"><span data-fill="tommy"></span></span><span class="poll-count" data-count="tommy">—</span></div>
+          <div class="poll-row"><button data-vote="oscar">Oscar — the trivia wizard</button><span class="poll-bar"><span data-fill="oscar"></span></span><span class="poll-count" data-count="oscar">—</span></div>
+          <div class="poll-row"><button data-vote="daz">Daz — Jordana's man-servant</button><span class="poll-bar"><span data-fill="daz"></span></span><span class="poll-count" data-count="daz">—</span></div>
+          <p class="poll-note">One vote per phone. Results locked until wheels down.</p>
+        </div>
+      </article>
+
+      <article class="twist-card twist-golf">
+        <h3>The Golf Assassin 🏌️</h3>
+        <p>Word around the group chat: <b>Justin</b> is secretly a bandit. The boys think it's a casual round. Justin thinks it's a championship. By day three, the glowing white dad-bod will be down five holes to a man who "hasn't played in ages."</p>
+        <div class="handicap">
+          <div>Justin's claimed handicap</div>
+          <div class="handicap-num">[REDACTED]</div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ========== THE VILLA ========== -->
+  <section class="villa">
+    <div class="section-head">
+      <h2>THE VILLA</h2>
+      <p>Ayodya Resort Bali · Nusa Dua · Beachfront · All-inclusive</p>
+    </div>
+
+    <div class="villa-layout">
+      <div class="villa-hero">
+        <img src="assets/resort/resort-1.jpg" alt="Ayodya Resort Bali aerial" />
+        <div class="villa-label">
+          <span class="eyebrow">THE RESORT</span>
+          <span class="name">Ayodya Resort Bali</span>
+          <span class="sub">Nusa Dua · all-inclusive · beachfront · ~20 min from DPS</span>
+        </div>
+      </div>
+
+      <div class="villa-row">
+        <div class="villa-map">
+          <iframe
+            src="https://www.google.com/maps?q=Ayodya+Resort+Bali,+Nusa+Dua&output=embed"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ayodya Resort Bali location"></iframe>
+        </div>
+
+        <div class="villa-details">
+          <div class="detail">
+            <span class="detail-icon">🛩️</span>
+            <div><b>Outbound</b>QF45 · Sun 23 Aug 2026<br/>MEL 17:45 → DPS 22:00</div>
+          </div>
+          <div class="detail">
+            <span class="detail-icon">🚐</span>
+            <div><b>Transfer</b>~20 min from Denpasar airport</div>
+          </div>
+          <div class="detail">
+            <span class="detail-icon">✈️</span>
+            <div><b>Return</b>QF46 · Sun 30 Aug 2026<br/>DPS 23:05 → MEL 06:40 Mon</div>
+          </div>
+          <div class="detail early-birds">
+            <span class="detail-icon">🕒</span>
+            <div><b>Early birds</b>Justin &amp; Jordana land Saturday</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="villa-gallery">
+        <div class="thumb">
+          <img src="assets/resort/resort-2.jpg" alt="Sunset infinity pool" />
+          <div class="thumb-label">Sunset pool</div>
+        </div>
+        <div class="thumb">
+          <img src="assets/resort/resort-3.jpg" alt="Kids splash park" />
+          <div class="thumb-label">Kids' splash park</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HOW IT STARTED ========== -->
+  <section class="origin">
+    <div class="section-head">
+      <h2>HOW IT STARTED</h2>
+      <p>The origin story. Told in the voice of a 30-for-30 that nobody greenlit.</p>
+    </div>
+    <div class="origin-doco">
+      <p class="drop"><b>It started with Alistair.</b></p>
+      <p>One man. One flight. <em>"I'm booking now or I'll forget."</em></p>
+      <p>Two weeks later, Tommy and Amy booked. They got <b>cheaper flights than Al</b>. Nobody talks about it. The Chief doesn't gloat.</p>
+      <p>Then the snowball. Justin. Jordana. Renee. Oscar. Rachel. Daz.</p>
+      <p>And then — <b>Lauren</b>. Who hates booking things in advance. Who cancels dinners three days out. Who says <em>"I'll let you know on the day."</em></p>
+      <p>She booked a flight to Bali <b>four months ahead</b>.</p>
+      <p class="punch">She likes us.<br/>She actually likes us.</p>
+    </div>
+  </section>
+
+  <!-- ========== BALI TRAINING — video + checklist ========== -->
+  <section class="training-strip">
+    <div class="training-card">
+
+      <div class="training-video">
+        <div class="video-frame vertical">
+          <iframe
+            src="https://www.youtube.com/embed/c-ixAloBfsk?autoplay=1&mute=1&loop=1&playlist=c-ixAloBfsk&controls=1&modestbranding=1&rel=0&playsinline=1"
+            title="Bodhi training for Bali"
+            frameborder="0"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+        <p class="video-caption">Bodhi · soda-water division · undefeated</p>
+      </div>
+
+      <div class="training-copy">
+        <h3>Bali Training Schedule</h3>
+        <p class="training-lede">What we'll knock off before wheels up:</p>
+
+        <ul class="training-check" id="trainingCheck">
+          <li><span class="check-box"></span><span class="check-text"><b>Girls' Night Out</b> — warm-up qualifier</span></li>
+          <li><span class="check-box"></span><span class="check-text"><b>Boys' Golf Day</b> — endurance round (Justin favourite)</span></li>
+          <li><span class="check-box"></span><span class="check-text"><b>Yacht Club Sundowners</b> — cardio</span></li>
+          <li><span class="check-box"></span><span class="check-text"><b>Winery Marathon</b> — Lauren, middle distance</span></li>
+          <li><span class="check-box"></span><span class="check-text"><b>Top-shelf whiskey audit</b> — Lauren only, no impostors</span></li>
+          <li><span class="check-box"></span><span class="check-text"><b>Long Islands for Jordana</b> — technical event</span></li>
+          <li class="is-checked"><span class="check-box"></span><span class="check-text"><b>Bodhi · soda water</b> — junior division, undefeated</span></li>
+        </ul>
+
+        <p class="training-foot">Bodhi's warm-up round is in the bag. The rest is pending.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== THE OFFSPRING ========== -->
+  <section class="offspring">
+    <div class="section-head">
+      <h2>THE OFFSPRING</h2>
+      <p>10 kids. Ages 2–9. Splash park bound.</p>
+    </div>
+    <div class="kids-grid">
+      <div class="kid-group"><h4>Justin &amp; Jordana</h4><p class="coming-soon">names + ages incoming</p></div>
+      <div class="kid-group"><h4>Renee &amp; Al</h4><p class="coming-soon">names + ages incoming</p></div>
+      <div class="kid-group"><h4>Lauren &amp; Oscar</h4><p class="coming-soon">names + ages incoming</p></div>
+      <div class="kid-group"><h4>Tommy &amp; Amy</h4><p class="coming-soon">Bodhi (soda-water champion) + crew</p></div>
+      <div class="kid-group"><h4>Rachel &amp; Daz</h4><p class="coming-soon">names + ages incoming</p></div>
+    </div>
+  </section>
+
+  <!-- ========== PREVIOUSLY ON — WhatsApp thread ========== -->
+  <section class="previously">
+    <div class="section-head">
+      <h2>PREVIOUSLY ON THE BALI 10</h2>
+      <p>A selection from the group chat. In full context, it's worse.</p>
+    </div>
+    <div class="wa-shell">
+      <div class="wa-header">
+        <div class="wa-avatar">🏝️</div>
+        <div class="wa-header-text">
+          <div class="wa-title">The Bali 10 🏝️🍹😎</div>
+          <div class="wa-subtitle">10 participants · <em>typing…</em></div>
+        </div>
+        <div class="wa-icons">📹 📞 ⋮</div>
+      </div>
+      <div class="wa-messages" id="waMessages">
+        <div class="wa-track">
+          <div class="wa-day-chip">BEFORE THE TRIP</div>
+
+          <div class="wa-msg in"><span class="wa-sender c-justin">Justin</span>"Nusa Dua ain't gonna know what hit it."<span class="wa-time">8:51 PM</span></div>
+          <div class="wa-msg out">"I look like Temu Ricki Martin."<span class="wa-time">9:31 PM</span></div>
+          <div class="wa-msg in"><span class="wa-sender c-jordana">Jordana</span>"I honestly can't tell who is meant to be me 🥲"<span class="wa-time">9:35 PM</span></div>
+          <div class="wa-msg in"><span class="wa-sender c-jordana">Jordana</span>"I look like I'm in an MLM."<span class="wa-time">9:36 PM</span></div>
+          <div class="wa-msg in"><span class="wa-sender c-amy">Amy</span>"I'd invite you to host a Mary Kay party for sure 😂"<span class="wa-time">9:37 PM</span></div>
+          <div class="wa-msg in"><span class="wa-sender c-jordana">Jordana</span>"I personally think I'd really excel at Tupperware parties."<span class="wa-time">9:38 PM</span></div>
+          <div class="wa-msg in"><span class="wa-sender c-amy">Amy</span>"I love that we're in business casual in the pool."<span class="wa-time">9:32 PM</span></div>
+          <div class="wa-msg in"><span class="wa-sender c-lauren">Lauren</span>"Always training."<span class="wa-time">4:22 PM</span></div>
+          <div class="wa-msg in"><span class="wa-sender c-al">Al</span>"4 months / 121 days to Bali — not that I'm counting."<span class="wa-time">9:02 PM</span></div>
+          <div class="wa-msg in"><span class="wa-sender c-darren">Darren</span>"Look for the glowing white dad bod and the sound of chaos. That's us."<span class="wa-time">7:31 PM</span></div>
+          <div class="wa-msg in"><span class="wa-sender c-rachel">Rachel</span>"Setting the tone for the trip… and I like it 🍹"<span class="wa-time">9:02 PM</span></div>
+          <div class="wa-msg in"><span class="wa-sender c-darren">Darren</span>"Good morning, you look so hot today."<span class="wa-time">8:49 AM</span></div>
+          <div class="wa-msg in"><span class="wa-sender c-jordana">Jordana</span>"He knows his place 😝"<span class="wa-time">8:47 AM</span></div>
+          <div class="wa-msg out">"Like the yacht club but your kids can't drown."<span class="wa-time">12:21 PM</span></div>
+          <div class="wa-msg in"><span class="wa-sender c-amy">Amy</span>"Don't have to be good when you're the funnest."<span class="wa-time">8:13 PM</span></div>
+          <div class="wa-msg in"><span class="wa-sender c-amy">Amy</span>"Ready to be wet rats with y'all ❤️"<span class="wa-time">10:26 AM</span></div>
+          <div class="wa-msg out">"Haters will say it's AI."<span class="wa-time">8:20 PM</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <p class="footer-big">HATERS WILL SAY IT'S AI.</p>
+    <p class="footer-sub">
+      Produced by Tommy. Organised by Amy. Booked first by Alistair.<br/>
+      Fact-checked by the Chief of Staff. Stunt-coordinated by Bodhi.
+    </p>
+    <p class="footer-fine">© 2026 The Bali 10 · Nusa Dua or bust · Keep your shirt on, Tommy.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
