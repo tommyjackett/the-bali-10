@@ -11,6 +11,25 @@ window.addEventListener('pageshow', () => window.scrollTo(0, 0));
 
 /* ---------- 0. YOUTUBE IFRAME API — reliable looping for unlisted videos ---------- */
 var heroPlayer, bodhiPlayer;
+
+// Pause a player when its iframe scrolls out of view; resume when back in view.
+function observeForVisibility(player) {
+  if (!('IntersectionObserver' in window)) return;
+  const iframe = player.getIframe && player.getIframe();
+  if (!iframe) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!player || typeof player.pauseVideo !== 'function') return;
+      if (entry.isIntersecting) {
+        try { player.playVideo(); } catch (_) {}
+      } else {
+        try { player.pauseVideo(); } catch (_) {}
+      }
+    });
+  }, { threshold: 0.25 });
+  io.observe(iframe);
+}
+
 function onYouTubeIframeAPIReady() {
   if (document.getElementById('hero-player')) {
     heroPlayer = new YT.Player('hero-player', {
@@ -24,6 +43,7 @@ function onYouTubeIframeAPIReady() {
       events: {
         onReady: (e) => {
           e.target.playVideo();
+          observeForVisibility(e.target);
           // Unmute on the first user interaction — browsers block audible autoplay.
           const unmute = () => {
             try { e.target.unMute(); e.target.setVolume(100); } catch (_) {}
@@ -48,7 +68,10 @@ function onYouTubeIframeAPIReady() {
         modestbranding: 1, rel: 0, playsinline: 1
       },
       events: {
-        onReady: (e) => e.target.playVideo(),
+        onReady: (e) => {
+          e.target.playVideo();
+          observeForVisibility(e.target);
+        },
         onStateChange: (e) => { if (e.data === 0) { e.target.seekTo(0); e.target.playVideo(); } }
       }
     });
@@ -172,6 +195,7 @@ function openBio(key) {
   if (!c) return;
   const pos = FACE_POS[key] || 'center 28%';
   modalInner.innerHTML = `
+    <div class="bio-banner">MEET YOUR CONTESTANT</div>
     <div class="bio-hero">
       <img src="${c.photo}" alt="${c.names}" style="object-position: ${pos};">
       <div class="chyron">${c.nickname.toUpperCase()}</div>
