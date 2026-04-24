@@ -1174,6 +1174,10 @@ em { font-style: italic; }
   width: 100%; height: 100%;
   border: 0;
   display: block;
+  /* Scale up to visually crop out YouTube Shorts chrome (title bar + controls bar).
+     The container's overflow:hidden clips the overflow so the video content fills. */
+  transform: scale(1.22);
+  transform-origin: center center;
 }
 .video-caption {
   margin-top: 10px;
@@ -1273,7 +1277,9 @@ em { font-style: italic; }
 
 @media (max-width: 720px) {
   .training-card { grid-template-columns: 1fr; padding: 18px; gap: 18px; }
-  .video-frame.vertical { max-width: 200px; }
+  .video-frame.vertical { max-width: 260px; }
+  .video-frame.vertical iframe,
+  .video-frame.vertical .yt-mount { transform: scale(1.28); }
   .training-copy h3 { font-size: 19px; }
 }
 
