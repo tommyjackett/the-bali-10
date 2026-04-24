@@ -18,6 +18,31 @@ window.addEventListener('DOMContentLoaded', __scrollTopHard);
 window.addEventListener('load', () => { __scrollTopHard(); requestAnimationFrame(__scrollTopHard); });
 window.addEventListener('pageshow', __scrollTopHard);  // covers mobile back/forward bfcache
 
+// Lock scroll for the first 800ms so nothing (iframe focus, layout shift) can scroll us away.
+// We allow user-initiated scroll via wheel/touch events which set a flag.
+(function () {
+  let userScrolled = false;
+  const flag = () => { userScrolled = true; };
+  window.addEventListener('wheel', flag, { passive: true, once: true });
+  window.addEventListener('touchmove', flag, { passive: true, once: true });
+  window.addEventListener('keydown', flag, { passive: true, once: true });
+  const guard = setInterval(() => {
+    if (!userScrolled && window.scrollY > 0) __scrollTopHard();
+  }, 50);
+  setTimeout(() => clearInterval(guard), 800);
+})();
+
+// Manual smooth-scroll for the 'Meet the cast' link (since we removed global smooth-scroll)
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[href^="#"]');
+  if (!a) return;
+  const target = document.querySelector(a.getAttribute('href'));
+  if (target) {
+    e.preventDefault();
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+});
+
 /* ---------- 0. YOUTUBE IFRAME API — reliable looping for unlisted videos ---------- */
 var heroPlayer, bodhiPlayer;
 

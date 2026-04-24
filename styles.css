@@ -23,7 +23,8 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+/* scroll-behavior: smooth removed — was causing mobile page to animate down on load.
+   Smooth-scroll for the 'Meet the cast' button is handled manually in script.js. */
 body {
   font-family: 'Poppins', system-ui, sans-serif;
   color: var(--ink);
