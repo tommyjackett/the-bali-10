@@ -16,7 +16,19 @@ function onYouTubeIframeAPIReady() {
         iv_load_policy: 3
       },
       events: {
-        onReady: (e) => e.target.playVideo(),
+        onReady: (e) => {
+          e.target.playVideo();
+          // Unmute on the first user interaction — browsers block audible autoplay.
+          const unmute = () => {
+            try { e.target.unMute(); e.target.setVolume(100); } catch (_) {}
+            ['click', 'touchstart', 'keydown', 'scroll'].forEach(ev =>
+              document.removeEventListener(ev, unmute, true)
+            );
+          };
+          ['click', 'touchstart', 'keydown', 'scroll'].forEach(ev =>
+            document.addEventListener(ev, unmute, { once: true, capture: true })
+          );
+        },
         onStateChange: (e) => { if (e.data === 0) { e.target.seekTo(0); e.target.playVideo(); } }
       }
     });
