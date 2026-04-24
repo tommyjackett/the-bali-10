@@ -379,7 +379,7 @@ em { font-style: italic; }
 .polaroid-cta {
   position: absolute;
   left: 50%;
-  bottom: 52px;
+  bottom: 36px;
   transform: translateX(-50%);
   padding: 10px 20px;
   background: var(--pink);
@@ -408,10 +408,10 @@ em { font-style: italic; }
 .polaroid-cta:active { transform: translateX(-50%) translateY(0); }
 
 @media (max-width: 1100px) {
-  .polaroid-cta { bottom: 48px; font-size: 10px; padding: 9px 16px; letter-spacing: 0.14em; }
+  .polaroid-cta { bottom: 32px; font-size: 10px; padding: 9px 16px; letter-spacing: 0.14em; }
 }
 @media (max-width: 720px) {
-  .polaroid-cta { bottom: 44px; font-size: 10px; padding: 9px 14px; }
+  .polaroid-cta { bottom: 28px; font-size: 10px; padding: 9px 14px; }
 }
 .polaroid-cap .emoji {
   font-family: initial;
