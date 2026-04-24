@@ -3,6 +3,12 @@
    Countdown · Polaroid bio modal · Ticker · Best-man poll
    ============================================================ */
 
+/* ---------- ALWAYS LOAD FROM THE TOP ---------- */
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+window.scrollTo(0, 0);
+window.addEventListener('load', () => window.scrollTo(0, 0));
+window.addEventListener('pageshow', () => window.scrollTo(0, 0));
+
 /* ---------- 0. YOUTUBE IFRAME API — reliable looping for unlisted videos ---------- */
 var heroPlayer, bodhiPlayer;
 function onYouTubeIframeAPIReady() {
